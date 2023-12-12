@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body>
+        <div class="hide">
+          <audio id="audio" src="fold.mp3"></audio>
+        </div>
         <div class="helix-dad">
             <div class="helix" style="--total:20">
                 <!-- .strand[style="--i:$"]*20>.left>(.dot+.line)^.right>(.dot+.line) -->
@@ -210,7 +213,13 @@
                 </div>
             </div>
         </div>
-        <h1 class="name">
+        <script>
+          function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+          }
+        </script>
+        <h1 class="name" onclick="play()">
             <span class="math">\(\Sigma\)</span><span class="math">\(\mathcal{F}\)</span>
         </h1>
 
@@ -228,6 +237,11 @@
                 display: grid;
                 place-items: center;
                 font-size: 3vmin;
+            }
+
+            .hide {
+              display: none;
+              height: 0;
             }
 
             .name {
